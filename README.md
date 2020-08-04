@@ -1,5 +1,4 @@
-# Ejercicio-Trainee-node.js-OOP
+# Ejercicio Trainee node.js OOP
 
 Exercise done with javascript.
-
 
