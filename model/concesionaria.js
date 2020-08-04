@@ -1,15 +1,15 @@
 const { Vehiculo } = require('./vehiculo');
 
 class Concesionaria {
-    vehiculos = [];
+    vehiculos;
 
     constructor() {
         this.vehiculos = [];
     }
 
     /**
-     * Return vehicle more expensive.
-     * If there is not vehicles return null
+     * Returns vehicle more expensive.
+     * If there are not vehicles returns null
      */
 
     getMoreExpensiveVehicle() {
@@ -18,8 +18,8 @@ class Concesionaria {
     }
 
     /**
-     * Return vehicle cheaper.
-     * If there is not vehicles return null
+     * Returns cheaper vehicle.
+     * If there are not vehicles returns null
      */
     getCheaperVehicle() {
         const vCheaper = this.vehiculos.reduce((pv, cv) => pv.precio <= cv.precio ? pv : cv)
@@ -38,18 +38,25 @@ class Concesionaria {
      * 
      * @param {string} letter - is a char
      * 
-     * Return the vehicles that contain the letter
+     * Returns the vehicles that contains the letter
      */
     getVehiclesThatContainTheLetter(letter) {
-        return this.vehiculos.filter(v => (v.marca.includes(letter) || v.modelo.includes(letter)));
+        return this.vehiculos.filter(v => v.modelo.includes(letter));
     }
 
     /**
-     *  Return Vehicle's array order by price highest to lower.
+     *  Returns Vehicle's array ordered by price highest to lower.
      */
 
     GetVehiclesByPriceFromHighestToLowest() {
         return this.vehiculos.sort((a, b) => b.precio - a.precio);
+    }
+
+    /**
+     * Returns all vehicles.
+     */
+    getAllVehicles() {
+        return this.vehiculos;
     }
 
 };
